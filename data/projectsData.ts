@@ -7,20 +7,29 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'Qwiket: real-time sports media annotated index',
+    description: `Slicing and dicing professional sports publications and indexing them by athletes' mentions.`,
+    imgSrc: '/static/images/qwiket-screen.png',
+    href: 'https://www.qwiket.com?utm_content=r3',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'American Outdoorsman',
+    description: `News Digest for the outdoors life in America's Heartland.`,
+    imgSrc: '/static/images/american-outdoorsman-screen.png',
+    href: 'https://www.american-outdoorsman.com',
+  },
+  {
+    title: 'NFL/NHL/MLB/NBA News Digest',
+    description: `Sports News Digest for Twitter/X @qwiket_nfl, @qwiket_mlb, @qwiket_nba, @qwiket_nhl.`,
+    imgSrc: '/static/images/x-screen.png',
+    href: 'https://twitter.com/qwiket_nfl',
+  },
+  
+  {
+    title: 'Pentacostal Prayer App',
+    description: `Free Pentacostal Prayer Web Application.`,
+    imgSrc: '/static/images/prayer50-screen.png',
+    href: 'https://www.prayer50.com',
   },
 ]
 
