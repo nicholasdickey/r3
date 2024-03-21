@@ -30,6 +30,7 @@ Set up an API route for OpenAI:
 
 ```ts
 // pages/api/openai.ts
+/*
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Configuration, OpenAIApi } from "openai";
 
@@ -59,6 +60,7 @@ export default async function handler(
     return res.status(500).json({ error: 'Failed to fetch response from OpenAI' });
   }
 }
+*/
 ```
 
 ## Environment Variables for Security
@@ -77,6 +79,7 @@ Invoke from the frontend:
 
 ```ts
 // components/OpenAIQuery.tsx
+/*
 import React, { useState } from 'react';
 
 export const OpenAIQuery = () => {
@@ -110,5 +113,6 @@ export const OpenAIQuery = () => {
     </div>
   );
 };
+*/
 ```
 
