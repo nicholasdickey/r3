@@ -29,7 +29,7 @@ const projectsData: Project[] = [
     title: 'Pentacostal Prayer App',
     description: `Free Pentacostal Prayer Web Application.`,
     imgSrc: '/static/images/prayer50-screen.png',
-    href: 'https://www.prayer50.com',
+    href: 'https://www.pray50.com',
   },
 ]
 
