@@ -1,0 +1,114 @@
+---
+title: 'Secure the API for OpenAI access'
+date: 2024-02-19T11:12:18Z
+lastmod: '2024-02-19'
+tags: ['openAI', 'Next.js', 'API']
+draft: false
+summary: "Integrating OpenAI APIs securely is crucial. This guide outlines using Next.js API routes with TypeScript."
+layout: PostSimple
+bibliography: references-data.bib
+---
+
+
+# Securely Accessing OpenAI APIs with Next.js API Routes and TypeScript
+
+Integrating OpenAI APIs securely is crucial. This guide outlines using Next.js API routes with TypeScript.
+
+## Setting Up Next.js with TypeScript
+
+Ensure TypeScript support:
+
+```
+touch tsconfig.json
+```
+
+Next.js auto-configures `tsconfig.json` upon running the app.
+
+## Creating a Secure API Route
+
+Set up an API route for OpenAI:
+
+```ts
+// pages/api/openai.ts
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { Configuration, OpenAIApi } from "openai";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const { prompt } = req.body;
+  if (!prompt) {
+    return res.status(400).json({ error: 'Prompt is required' });
+  }
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
+
+  try {
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt,
+      temperature: 0.7,
+      max_tokens: 150,
+    });
+    return res.status(200).json(response.data);
+  } catch (error) {
+    console.error('OpenAI API error:', error);
+    return res.status(500).json({ error: 'Failed to fetch response from OpenAI' });
+  }
+}
+```
+
+## Environment Variables for Security
+
+Securely store the OpenAI API key:
+
+```
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+Use `process.env.OPENAI_API_KEY` for secure access.
+
+## Invoking the API Route
+
+Invoke from the frontend:
+
+```ts
+// components/OpenAIQuery.tsx
+import React, { useState } from 'react';
+
+export const OpenAIQuery = () => {
+  const [prompt, setPrompt] = useState('');
+  const [response, setResponse] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/openai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt }),
+    });
+
+    if (res.ok) {
+      const { choices } = await res.json();
+      setResponse(choices[0].text);
+    } else {
+      console.error('Failed to fetch response');
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)}></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div>{response}</div>
+    </div>
+  );
+};
+```
+
