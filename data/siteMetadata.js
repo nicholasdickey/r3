@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Reacterra Labs',
   author: 'Nicholas Dickey',
   headerTitle: 'Reacterra Labs',
-  description: 'Focusing on creating MVP prompt engineering applications for the web',
+  description: 'Focusing on creating MVP prompt engineering applications for the web.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://reacterra.com',
