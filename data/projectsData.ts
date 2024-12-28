@@ -7,7 +7,7 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'Qwiket: real-time sports media annotated index',
+    title: 'Qwiket: Sport-savvy AI Chat and news monitor for fantasy sports and betting enthusiasts',
     description: `Slicing and dicing professional sports publications and indexing them by athletes' mentions.`,
     imgSrc: '/static/images/qwiket-screen.png',
     href: 'https://www.qwiket.com?utm_content=r3',
