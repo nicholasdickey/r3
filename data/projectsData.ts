@@ -16,7 +16,7 @@ const projectsData: Project[] = [
     title: 'American Outdoorsman',
     description: `News Digest for the outdoors life in America's Heartland.`,
     imgSrc: '/static/images/american-outdoorsman-screen.png',
-    href: 'https://www.american-outdoorsman.com',
+    href: 'https://www.american-outdoorsman.news',
   },
   {
     title: 'NFL/NHL/MLB/NBA News Digest',
@@ -24,7 +24,7 @@ const projectsData: Project[] = [
     imgSrc: '/static/images/x-screen.png',
     href: 'https://twitter.com/qwiket_nfl',
   },
-  
+
   {
     title: 'Pentacostal Prayer App',
     description: `Free Pentacostal Prayer Web Application.`,
